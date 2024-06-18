@@ -1,0 +1,1 @@
+gem 'mqtt', :github => 'njh/ruby-mqtt'
