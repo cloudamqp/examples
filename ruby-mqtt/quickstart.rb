@@ -1,6 +1,6 @@
 require 'mqtt'
 
-mqtturl = 'mqtts://rwgvqgbl:dt4yLbbvJd6FYQjVhyhBpvKROz2PUMXc@test-tall-gold-lark.rmq3.cloudamqp.com/rwgvqgbl'
+mqtturl = 'mqtts://user:passwd@test-tall-gold-lark.rmq3.cloudamqp.com/rwgvqgbl'
 
 # Publish example
 puts "Sending"
