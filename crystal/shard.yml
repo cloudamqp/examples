@@ -1,0 +1,19 @@
+name: crystal-amqp-example
+version: 0.1.0
+
+dependencies:
+  amqp-client:
+    github: cloudamqp/amqp-client.cr
+    version: ~> 1.3
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+
+targets:
+  publisher:
+    main: src/publisher.cr
+  worker:
+    main: src/worker.cr
+
+crystal: ">= 1.0.0"
