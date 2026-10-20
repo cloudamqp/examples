@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use amqp_client_rs::QueueDeclareOpts;
-use rust_amqp_example::{connect, consume, publish};
+use rust_amqp_client_example::{connect, consume, publish};
 
 #[tokio::test]
 async fn worker_receives_published_message() {

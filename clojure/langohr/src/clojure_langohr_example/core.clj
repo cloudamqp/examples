@@ -1,4 +1,4 @@
-(ns clojure-amqp-example.core
+(ns clojure-langohr-example.core
   (:require [clojure.string :as str]
             [langohr.basic :as lb]
             [langohr.channel :as lch]

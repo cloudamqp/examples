@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cloudamqp.example</groupId>
-  <artifactId>amqpexample</artifactId>
+  <artifactId>java-rabbitmq-client-example</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
