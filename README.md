@@ -17,5 +17,5 @@ self-contained project with its own README.
 | Python | [python/celery](python/celery) | AMQP | [Celery](https://docs.celeryq.dev) app using CloudAMQP as the broker |
 | Python | [python/pika](python/pika) | AMQP | Publish/consume with [Pika](https://github.com/pika/pika) |
 | Ruby | [ruby/amqp-client](ruby/amqp-client) | AMQP | Publish/consume with [amqp-client.rb](https://github.com/cloudamqp/amqp-client.rb) |
-| Ruby | [ruby/mqtt](ruby/mqtt) | MQTT | Publish/subscribe with [ruby-mqtt](https://github.com/njh/ruby-mqtt) |
+| Ruby | [ruby/mqtt](ruby/mqtt) | MQTT | QoS 1 publish/subscribe with [ruby-mqtt](https://github.com/njh/ruby-mqtt) |
 | Rust | [rust/amqp-client](rust/amqp-client) | AMQP | Publish/consume with [amqp-client.rs](https://github.com/cloudamqp/amqp-client.rs) |
