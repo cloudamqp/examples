@@ -1,0 +1,21 @@
+name: typescript/amqp-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["typescript/amqp-client/**", ".github/workflows/typescript-amqp-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["typescript/amqp-client/**", ".github/workflows/typescript-amqp-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: typescript/amqp-client
+      test: |
+        npm ci
+        npm run typecheck
+        npm test
