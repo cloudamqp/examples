@@ -1,0 +1,20 @@
+name: javascript/amqp-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["javascript/amqp-client/**", ".github/workflows/javascript-amqp-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["javascript/amqp-client/**", ".github/workflows/javascript-amqp-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: javascript/amqp-client
+      test: |
+        npm ci
+        npm test
