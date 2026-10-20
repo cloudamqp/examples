@@ -24,6 +24,8 @@ Rules for adding or changing examples in this repo.
   tool versions, and tests that run against a local LavinMQ.
 - Connects using the `CLOUDAMQP_URL` environment variable. Never commit
   credentials or real broker hostnames.
+  Examples for other protocols (MQTT, STOMP) derive their connection settings
+  from the same AMQP URL, see `ruby/mqtt/connection.rb`.
 - Is minimal: publish with confirms and consume with manual acks and a prefetch,
   unless the example is about something else.
 

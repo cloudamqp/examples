@@ -1,0 +1,20 @@
+name: ruby/mqtt
+
+on:
+  push:
+    branches: [main]
+    paths: ["ruby/mqtt/**", ".github/workflows/ruby-mqtt.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["ruby/mqtt/**", ".github/workflows/ruby-mqtt.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: ruby/mqtt
+      test: |
+        bundle install
+        bundle exec rake
