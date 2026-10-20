@@ -1,0 +1,18 @@
+name: dotnet/rabbitmq-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["dotnet/rabbitmq-client/**", ".github/workflows/dotnet-rabbitmq-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["dotnet/rabbitmq-client/**", ".github/workflows/dotnet-rabbitmq-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: dotnet/rabbitmq-client
+      test: DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_NOLOGO=1 dotnet test

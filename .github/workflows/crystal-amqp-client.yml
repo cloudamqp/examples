@@ -1,0 +1,26 @@
+name: crystal/amqp-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["crystal/amqp-client/**", ".github/workflows/crystal-amqp-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["crystal/amqp-client/**", ".github/workflows/crystal-amqp-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: crystal/amqp-client
+      # Regex (used by spec) needs PCRE2, ameba needs libyaml
+      apt-packages: libpcre2-dev libyaml-dev
+      test: |
+        shards install
+        crystal tool format --check
+        mkdir -p bin
+        crystal build lib/ameba/bin/ameba.cr -o bin/ameba
+        bin/ameba
+        crystal spec

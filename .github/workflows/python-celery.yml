@@ -1,0 +1,20 @@
+name: python/celery
+
+on:
+  push:
+    branches: [main]
+    paths: ["python/celery/**", ".github/workflows/python-celery.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["python/celery/**", ".github/workflows/python-celery.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: python/celery
+      test: |
+        pip install -r requirements-dev.txt
+        pytest
