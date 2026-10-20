@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-amqp-client-example",
+  "name": "typescript-amqp-client-example",
   "private": true,
   "type": "module",
   "engines": {
