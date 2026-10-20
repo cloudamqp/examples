@@ -1,1 +1,8 @@
-gem 'mqtt', :github => 'njh/ruby-mqtt'
+source "https://rubygems.org"
+
+gem "mqtt", "~> 0.7"
+
+group :test do
+  gem "minitest", "~> 6.0"
+  gem "rake"
+end

@@ -1,0 +1,9 @@
+require "minitest/test_task"
+
+# The mqtt gem itself is noisy with -w
+Minitest::TestTask.create(:test) do |t|
+  t.test_globs = ["test/**/*_test.rb"]
+  t.warning = false
+end
+
+task default: :test
