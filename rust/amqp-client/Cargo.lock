@@ -374,7 +374,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-amqp-example"
+name = "rust-amqp-client-example"
 version = "0.1.0"
 dependencies = [
  "amqp-client-rs",

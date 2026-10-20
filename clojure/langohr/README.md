@@ -5,7 +5,7 @@ A minimal example of publishing and consuming messages with
 [CloudAMQP](https://www.cloudamqp.com) or any AMQP 0-9-1 broker such as
 [LavinMQ](https://lavinmq.com) or RabbitMQ.
 
-All code is in [`core.clj`](src/clojure_amqp_example/core.clj):
+All code is in [`core.clj`](src/clojure_langohr_example/core.clj):
 
 - `publish` publishes a persistent message and waits for the broker's confirm.
 - `consume` consumes with manual acknowledgements and a prefetch of 10.

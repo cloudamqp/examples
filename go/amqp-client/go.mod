@@ -1,4 +1,4 @@
-module github.com/cloudamqp/go-amqp-example
+module github.com/cloudamqp/examples/go/amqp-client
 
 go 1.24
 

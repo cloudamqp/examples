@@ -1,4 +1,4 @@
-use rust_amqp_example::{connect, publish};
+use rust_amqp_client_example::{connect, publish};
 
 #[tokio::main]
 async fn main() -> Result<(), amqp_client_rs::Error> {

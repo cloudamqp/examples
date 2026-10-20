@@ -1,6 +1,6 @@
-(ns clojure-amqp-example.core-test
+(ns clojure-langohr-example.core-test
   (:require [clojure.test :refer [deftest is]]
-            [clojure-amqp-example.core :as example]
+            [clojure-langohr-example.core :as example]
             [langohr.core :as rmq]
             [langohr.channel :as lch]
             [langohr.queue :as lq])
