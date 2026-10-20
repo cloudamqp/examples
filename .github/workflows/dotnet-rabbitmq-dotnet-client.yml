@@ -1,18 +1,22 @@
-name: go
+name: dotnet-rabbitmq-dotnet-client
 
 on:
   push:
     branches: [main]
-    paths: ["go/**", ".github/workflows/go.yml"]
+    paths: ["dotnet/rabbitmq-dotnet-client/**", ".github/workflows/dotnet-rabbitmq-dotnet-client.yml"]
   pull_request:
-    paths: ["go/**", ".github/workflows/go.yml"]
+    paths: ["dotnet/rabbitmq-dotnet-client/**", ".github/workflows/dotnet-rabbitmq-dotnet-client.yml"]
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_NOLOGO: "1"
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: go
+    working-directory: dotnet/rabbitmq-dotnet-client
 
 jobs:
   test:
@@ -28,7 +32,7 @@ jobs:
 
       - uses: jdx/mise-action@v5
         with:
-          working_directory: go
+          working_directory: dotnet/rabbitmq-dotnet-client
 
       - name: Wait for LavinMQ
         run: |
@@ -39,6 +43,4 @@ jobs:
           exit 1
 
       - name: Test
-        run: |
-          go vet ./...
-          go test ./...
+        run: dotnet test

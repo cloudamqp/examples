@@ -1,18 +1,18 @@
-name: clojure
+name: go-amqp-client
 
 on:
   push:
     branches: [main]
-    paths: ["clojure/**", ".github/workflows/clojure.yml"]
+    paths: ["go/amqp-client/**", ".github/workflows/go-amqp-client.yml"]
   pull_request:
-    paths: ["clojure/**", ".github/workflows/clojure.yml"]
+    paths: ["go/amqp-client/**", ".github/workflows/go-amqp-client.yml"]
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: clojure
+    working-directory: go/amqp-client
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
 
       - uses: jdx/mise-action@v5
         with:
-          working_directory: clojure
+          working_directory: go/amqp-client
 
       - name: Wait for LavinMQ
         run: |
@@ -39,4 +39,6 @@ jobs:
           exit 1
 
       - name: Test
-        run: lein test
+        run: |
+          go vet ./...
+          go test ./...

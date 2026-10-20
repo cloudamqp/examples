@@ -1,18 +1,18 @@
-name: nodejs
+name: clojure-langohr
 
 on:
   push:
     branches: [main]
-    paths: ["nodejs/**", ".github/workflows/nodejs.yml"]
+    paths: ["clojure/langohr/**", ".github/workflows/clojure-langohr.yml"]
   pull_request:
-    paths: ["nodejs/**", ".github/workflows/nodejs.yml"]
+    paths: ["clojure/langohr/**", ".github/workflows/clojure-langohr.yml"]
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: nodejs
+    working-directory: clojure/langohr
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
 
       - uses: jdx/mise-action@v5
         with:
-          working_directory: nodejs
+          working_directory: clojure/langohr
 
       - name: Wait for LavinMQ
         run: |
@@ -39,7 +39,4 @@ jobs:
           exit 1
 
       - name: Test
-        run: |
-          npm ci
-          npm run typecheck
-          npm test
+        run: lein test

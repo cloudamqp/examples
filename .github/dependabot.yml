@@ -5,38 +5,38 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: pip
-    directory: /celery
+    directory: /python/celery
     schedule:
       interval: weekly
   - package-ecosystem: nuget
-    directory: /dotnetcore
+    directory: /dotnet/rabbitmq-dotnet-client
     schedule:
       interval: weekly
   - package-ecosystem: gomod
-    directory: /go
+    directory: /go/amqp-client
     schedule:
       interval: weekly
   - package-ecosystem: maven
-    directory: /java
+    directory: /java/rabbitmq-java-client
     schedule:
       interval: weekly
   - package-ecosystem: npm
-    directory: /nodejs
+    directory: /nodejs/amqp-client
     schedule:
       interval: weekly
   - package-ecosystem: composer
-    directory: /php-amqplib
+    directory: /php/php-amqplib
     schedule:
       interval: weekly
   - package-ecosystem: pip
-    directory: /python
+    directory: /python/pika
     schedule:
       interval: weekly
   - package-ecosystem: bundler
-    directory: /ruby
+    directory: /ruby/amqp-client
     schedule:
       interval: weekly
   - package-ecosystem: cargo
-    directory: /rust
+    directory: /rust/amqp-client
     schedule:
       interval: weekly

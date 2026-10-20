@@ -1,18 +1,18 @@
-name: ruby
+name: java-rabbitmq-java-client
 
 on:
   push:
     branches: [main]
-    paths: ["ruby/**", ".github/workflows/ruby.yml"]
+    paths: ["java/rabbitmq-java-client/**", ".github/workflows/java-rabbitmq-java-client.yml"]
   pull_request:
-    paths: ["ruby/**", ".github/workflows/ruby.yml"]
+    paths: ["java/rabbitmq-java-client/**", ".github/workflows/java-rabbitmq-java-client.yml"]
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: ruby
+    working-directory: java/rabbitmq-java-client
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
 
       - uses: jdx/mise-action@v5
         with:
-          working_directory: ruby
+          working_directory: java/rabbitmq-java-client
 
       - name: Wait for LavinMQ
         run: |
@@ -39,6 +39,4 @@ jobs:
           exit 1
 
       - name: Test
-        run: |
-          bundle install
-          bundle exec rake
+        run: mvn --batch-mode test

@@ -1,18 +1,18 @@
-name: rust
+name: rust-amqp-client
 
 on:
   push:
     branches: [main]
-    paths: ["rust/**", ".github/workflows/rust.yml"]
+    paths: ["rust/amqp-client/**", ".github/workflows/rust-amqp-client.yml"]
   pull_request:
-    paths: ["rust/**", ".github/workflows/rust.yml"]
+    paths: ["rust/amqp-client/**", ".github/workflows/rust-amqp-client.yml"]
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: rust
+    working-directory: rust/amqp-client
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
 
       - uses: jdx/mise-action@v5
         with:
-          working_directory: rust
+          working_directory: rust/amqp-client
 
       - name: Wait for LavinMQ
         run: |

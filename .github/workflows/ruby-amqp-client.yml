@@ -1,18 +1,18 @@
-name: crystal
+name: ruby-amqp-client
 
 on:
   push:
     branches: [main]
-    paths: ["crystal/**", ".github/workflows/crystal.yml"]
+    paths: ["ruby/amqp-client/**", ".github/workflows/ruby-amqp-client.yml"]
   pull_request:
-    paths: ["crystal/**", ".github/workflows/crystal.yml"]
+    paths: ["ruby/amqp-client/**", ".github/workflows/ruby-amqp-client.yml"]
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: crystal
+    working-directory: ruby/amqp-client
 
 jobs:
   test:
@@ -28,11 +28,7 @@ jobs:
 
       - uses: jdx/mise-action@v5
         with:
-          working_directory: crystal
-
-      # Regex (used by spec) needs PCRE2, ameba needs libyaml
-      - name: Install libraries
-        run: sudo apt-get update && sudo apt-get install -y libpcre2-dev libyaml-dev
+          working_directory: ruby/amqp-client
 
       - name: Wait for LavinMQ
         run: |
@@ -44,9 +40,5 @@ jobs:
 
       - name: Test
         run: |
-          shards install
-          crystal tool format --check
-          mkdir -p bin
-          crystal build lib/ameba/bin/ameba.cr -o bin/ameba
-          bin/ameba
-          crystal spec
+          bundle install
+          bundle exec rake

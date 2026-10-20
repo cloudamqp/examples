@@ -1,18 +1,18 @@
-name: celery
+name: php-php-amqplib
 
 on:
   push:
     branches: [main]
-    paths: ["celery/**", ".github/workflows/celery.yml"]
+    paths: ["php/php-amqplib/**", ".github/workflows/php-php-amqplib.yml"]
   pull_request:
-    paths: ["celery/**", ".github/workflows/celery.yml"]
+    paths: ["php/php-amqplib/**", ".github/workflows/php-php-amqplib.yml"]
 
 permissions:
   contents: read
 
 defaults:
   run:
-    working-directory: celery
+    working-directory: php/php-amqplib
 
 jobs:
   test:
@@ -26,9 +26,11 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: jdx/mise-action@v5
+      # Building PHP with mise takes minutes; keep the version in sync with mise.toml
+      - uses: shivammathur/setup-php@v2
         with:
-          working_directory: celery
+          php-version: "8.5"
+          extensions: sockets, mbstring
 
       - name: Wait for LavinMQ
         run: |
@@ -40,5 +42,5 @@ jobs:
 
       - name: Test
         run: |
-          pip install -r requirements-dev.txt
-          pytest
+          composer install --no-interaction
+          composer test
