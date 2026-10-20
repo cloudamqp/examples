@@ -1,0 +1,18 @@
+name: clojure/langohr
+
+on:
+  push:
+    branches: [main]
+    paths: ["clojure/langohr/**", ".github/workflows/clojure-langohr.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["clojure/langohr/**", ".github/workflows/clojure-langohr.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: clojure/langohr
+      test: lein test

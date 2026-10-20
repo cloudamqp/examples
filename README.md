@@ -1,20 +1,21 @@
 # CloudAMQP examples
 
 Minimal examples of connecting to [CloudAMQP](https://www.cloudamqp.com), or any
-AMQP 0-9-1 broker such as [LavinMQ](https://lavinmq.com) or RabbitMQ. Each folder
-is a self-contained project with its own README.
+AMQP 0-9-1 broker such as [LavinMQ](https://lavinmq.com) or RabbitMQ. Examples are
+grouped by language, then by client library or framework. Each folder is a
+self-contained project with its own README.
 
-| Example | Description |
-|---|---|
-| [celery](celery) | Python [Celery](https://docs.celeryq.dev) app using CloudAMQP as the broker |
-| [clojure](clojure) | Clojure publish/consume with [Langohr](https://github.com/michaelklishin/langohr) |
-| [crystal](crystal) | Crystal publish/consume with [amqp-client.cr](https://github.com/cloudamqp/amqp-client.cr) |
-| [dotnetcore](dotnetcore) | .NET publish/consume with the [RabbitMQ .NET client](https://github.com/rabbitmq/rabbitmq-dotnet-client) 7 |
-| [go](go) | Go publish/consume with [amqp-client.go](https://github.com/cloudamqp/amqp-client.go) |
-| [java](java) | Java publish/consume with the [RabbitMQ Java client](https://github.com/rabbitmq/rabbitmq-java-client) |
-| [nodejs](nodejs) | TypeScript publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
-| [php-amqplib](php-amqplib) | PHP publish/consume with [php-amqplib](https://github.com/php-amqplib/php-amqplib) |
-| [python](python) | Python publish/consume with [Pika](https://github.com/pika/pika) |
-| [ruby](ruby) | Ruby publish/consume with [amqp-client.rb](https://github.com/cloudamqp/amqp-client.rb) |
-| [ruby-mqtt](ruby-mqtt) | Ruby MQTT publish/subscribe with [ruby-mqtt](https://github.com/njh/ruby-mqtt) |
-| [rust](rust) | Rust publish/consume with [amqp-client.rs](https://github.com/cloudamqp/amqp-client.rs) |
+| Language | Example | Protocol | Description |
+|---|---|---|---|
+| Clojure | [clojure/langohr](clojure/langohr) | AMQP | Publish/consume with [Langohr](https://github.com/michaelklishin/langohr) |
+| Crystal | [crystal/amqp-client](crystal/amqp-client) | AMQP | Publish/consume with [amqp-client.cr](https://github.com/cloudamqp/amqp-client.cr) |
+| .NET | [dotnet/rabbitmq-client](dotnet/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ .NET client](https://github.com/rabbitmq/rabbitmq-dotnet-client) 7 |
+| Go | [go/amqp-client](go/amqp-client) | AMQP | Publish/consume with [amqp-client.go](https://github.com/cloudamqp/amqp-client.go) |
+| Java | [java/rabbitmq-client](java/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ Java client](https://github.com/rabbitmq/rabbitmq-java-client) |
+| Node.js | [nodejs/amqp-client](nodejs/amqp-client) | AMQP | TypeScript publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
+| PHP | [php/php-amqplib](php/php-amqplib) | AMQP | Publish/consume with [php-amqplib](https://github.com/php-amqplib/php-amqplib) |
+| Python | [python/celery](python/celery) | AMQP | [Celery](https://docs.celeryq.dev) app using CloudAMQP as the broker |
+| Python | [python/pika](python/pika) | AMQP | Publish/consume with [Pika](https://github.com/pika/pika) |
+| Ruby | [ruby/amqp-client](ruby/amqp-client) | AMQP | Publish/consume with [amqp-client.rb](https://github.com/cloudamqp/amqp-client.rb) |
+| Ruby | [ruby/mqtt](ruby/mqtt) | MQTT | Publish/subscribe with [ruby-mqtt](https://github.com/njh/ruby-mqtt) |
+| Rust | [rust/amqp-client](rust/amqp-client) | AMQP | Publish/consume with [amqp-client.rs](https://github.com/cloudamqp/amqp-client.rs) |

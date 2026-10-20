@@ -1,0 +1,20 @@
+name: ruby/amqp-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["ruby/amqp-client/**", ".github/workflows/ruby-amqp-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["ruby/amqp-client/**", ".github/workflows/ruby-amqp-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: ruby/amqp-client
+      test: |
+        bundle install
+        bundle exec rake
