@@ -1,12 +1,18 @@
-name: CI
+name: php-amqplib
 
 on:
   push:
     branches: [main]
+    paths: ["php-amqplib/**", ".github/workflows/php-amqplib.yml"]
   pull_request:
+    paths: ["php-amqplib/**", ".github/workflows/php-amqplib.yml"]
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    working-directory: php-amqplib
 
 jobs:
   test:

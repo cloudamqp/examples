@@ -1,12 +1,18 @@
-name: CI
+name: python
 
 on:
   push:
     branches: [main]
+    paths: ["python/**", ".github/workflows/python.yml"]
   pull_request:
+    paths: ["python/**", ".github/workflows/python.yml"]
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    working-directory: python
 
 jobs:
   test:
@@ -21,6 +27,8 @@ jobs:
       - uses: actions/checkout@v7
 
       - uses: jdx/mise-action@v5
+        with:
+          working_directory: python
 
       - name: Wait for LavinMQ
         run: |
@@ -32,5 +40,5 @@ jobs:
 
       - name: Test
         run: |
-          bundle install
-          bundle exec rake
+          pip install -r requirements-dev.txt
+          pytest

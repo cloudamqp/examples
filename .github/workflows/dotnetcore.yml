@@ -1,12 +1,22 @@
-name: CI
+name: dotnetcore
 
 on:
   push:
     branches: [main]
+    paths: ["dotnetcore/**", ".github/workflows/dotnetcore.yml"]
   pull_request:
+    paths: ["dotnetcore/**", ".github/workflows/dotnetcore.yml"]
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_NOLOGO: "1"
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    working-directory: dotnetcore
 
 jobs:
   test:
@@ -21,6 +31,8 @@ jobs:
       - uses: actions/checkout@v7
 
       - uses: jdx/mise-action@v5
+        with:
+          working_directory: dotnetcore
 
       - name: Wait for LavinMQ
         run: |
@@ -31,4 +43,4 @@ jobs:
           exit 1
 
       - name: Test
-        run: lein test
+        run: dotnet test

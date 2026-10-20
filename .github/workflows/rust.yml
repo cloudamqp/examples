@@ -1,12 +1,18 @@
-name: CI
+name: rust
 
 on:
   push:
     branches: [main]
+    paths: ["rust/**", ".github/workflows/rust.yml"]
   pull_request:
+    paths: ["rust/**", ".github/workflows/rust.yml"]
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    working-directory: rust
 
 jobs:
   test:
@@ -21,6 +27,8 @@ jobs:
       - uses: actions/checkout@v7
 
       - uses: jdx/mise-action@v5
+        with:
+          working_directory: rust
 
       - name: Wait for LavinMQ
         run: |
@@ -32,6 +40,5 @@ jobs:
 
       - name: Test
         run: |
-          npm ci
-          npm run typecheck
-          npm test
+          cargo clippy --all-targets -- -D warnings
+          cargo test

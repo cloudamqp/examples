@@ -1,16 +1,18 @@
-name: CI
+name: celery
 
 on:
   push:
     branches: [main]
+    paths: ["celery/**", ".github/workflows/celery.yml"]
   pull_request:
-
-env:
-  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
-  DOTNET_NOLOGO: "1"
+    paths: ["celery/**", ".github/workflows/celery.yml"]
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    working-directory: celery
 
 jobs:
   test:
@@ -25,6 +27,8 @@ jobs:
       - uses: actions/checkout@v7
 
       - uses: jdx/mise-action@v5
+        with:
+          working_directory: celery
 
       - name: Wait for LavinMQ
         run: |
@@ -35,4 +39,6 @@ jobs:
           exit 1
 
       - name: Test
-        run: dotnet test
+        run: |
+          pip install -r requirements-dev.txt
+          pytest
