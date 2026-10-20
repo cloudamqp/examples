@@ -1,0 +1,21 @@
+name: nodejs/amqp-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["nodejs/amqp-client/**", ".github/workflows/nodejs-amqp-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["nodejs/amqp-client/**", ".github/workflows/nodejs-amqp-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: nodejs/amqp-client
+      test: |
+        npm ci
+        npm run typecheck
+        npm test

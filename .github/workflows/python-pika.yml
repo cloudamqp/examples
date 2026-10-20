@@ -1,0 +1,20 @@
+name: python/pika
+
+on:
+  push:
+    branches: [main]
+    paths: ["python/pika/**", ".github/workflows/python-pika.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["python/pika/**", ".github/workflows/python-pika.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: python/pika
+      test: |
+        pip install -r requirements-dev.txt
+        pytest

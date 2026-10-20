@@ -1,0 +1,22 @@
+name: php/php-amqplib
+
+on:
+  push:
+    branches: [main]
+    paths: ["php/php-amqplib/**", ".github/workflows/php-php-amqplib.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["php/php-amqplib/**", ".github/workflows/php-php-amqplib.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: php/php-amqplib
+      # Keep in sync with mise.toml
+      php-version: "8.5"
+      test: |
+        composer install --no-interaction
+        composer test

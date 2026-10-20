@@ -1,0 +1,69 @@
+# Shared job for every example: start LavinMQ, set up tools, run the tests.
+# Each example has a small caller workflow, see AGENTS.md.
+name: example
+
+on:
+  workflow_call:
+    inputs:
+      directory:
+        description: Example folder, e.g. python/pika
+        required: true
+        type: string
+      test:
+        description: Commands that run the example's tests
+        required: true
+        type: string
+      apt-packages:
+        description: Extra apt packages to install
+        required: false
+        type: string
+        default: ""
+      php-version:
+        description: Set up PHP with setup-php instead of mise
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: ${{ inputs.directory }}
+    services:
+      lavinmq:
+        image: cloudamqp/lavinmq:latest
+        ports:
+          - 5672:5672
+          - 15672:15672
+    steps:
+      - uses: actions/checkout@v7
+
+      - if: inputs.php-version == ''
+        uses: jdx/mise-action@v5
+        with:
+          working_directory: ${{ inputs.directory }}
+
+      # Building PHP with mise takes minutes
+      - if: inputs.php-version != ''
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ inputs.php-version }}
+          extensions: sockets, mbstring
+
+      - if: inputs.apt-packages != ''
+        run: sudo apt-get update && sudo apt-get install -y ${{ inputs.apt-packages }}
+
+      - name: Wait for LavinMQ
+        run: |
+          for _ in $(seq 60); do
+            curl -sf -u guest:guest http://localhost:15672/api/overview >/dev/null && exit 0
+            sleep 1
+          done
+          exit 1
+
+      - name: Test
+        run: ${{ inputs.test }}

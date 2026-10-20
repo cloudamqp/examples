@@ -1,0 +1,20 @@
+name: go/amqp-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["go/amqp-client/**", ".github/workflows/go-amqp-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["go/amqp-client/**", ".github/workflows/go-amqp-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: go/amqp-client
+      test: |
+        go vet ./...
+        go test ./...
