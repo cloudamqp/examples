@@ -22,7 +22,7 @@ switch (args.FirstOrDefault())
         }
         break;
     default:
-        Console.Error.WriteLine("Usage: dotnet run --project AmqpExample -- publish|worker");
+        Console.Error.WriteLine("Usage: AmqpExample publish|worker");
         return 1;
 }
 return 0;
