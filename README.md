@@ -12,6 +12,7 @@ self-contained project with its own README.
 | .NET | [dotnet/rabbitmq-client](dotnet/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ .NET client](https://github.com/rabbitmq/rabbitmq-dotnet-client) 7 |
 | Go | [go/amqp-client](go/amqp-client) | AMQP | Publish/consume with [amqp-client.go](https://github.com/cloudamqp/amqp-client.go) |
 | Java | [java/rabbitmq-client](java/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ Java client](https://github.com/rabbitmq/rabbitmq-java-client) |
+| JavaScript | [javascript/amqp-client](javascript/amqp-client) | AMQP | Publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
 | PHP | [php/php-amqplib](php/php-amqplib) | AMQP | Publish/consume with [php-amqplib](https://github.com/php-amqplib/php-amqplib) |
 | Python | [python/celery](python/celery) | AMQP | [Celery](https://docs.celeryq.dev) app using CloudAMQP as the broker |
 | Python | [python/pika](python/pika) | AMQP | Publish/consume with [Pika](https://github.com/pika/pika) |
