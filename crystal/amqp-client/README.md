@@ -21,7 +21,7 @@ amqp-client.cr doesn't reconnect: if the connection is lost, the programs exit.
 ## Usage
 
 Tool versions are in `mise.toml`; install them with [mise](https://mise.jdx.dev),
-or use any Crystal 1.x.
+or use Crystal 1.12 or later.
 
 ```sh
 shards build
