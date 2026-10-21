@@ -1,6 +1,4 @@
-use amqp_client_rs::{
-    BasicProperties, Client, Error, QueueDeclareOpts, RecoveryConfig, SubscribeOpts,
-};
+use amqp_client::{BasicProperties, Client, Error, QueueOpts, RecoveryConfig, SubscribeOpts};
 
 /// Connects to CLOUDAMQP_URL, and recovers the connection, queues and consumers if it's lost.
 pub async fn connect() -> Result<Client, Error> {
@@ -12,16 +10,9 @@ pub async fn connect() -> Result<Client, Error> {
         .await
 }
 
-fn durable() -> QueueDeclareOpts {
-    QueueDeclareOpts {
-        durable: true,
-        ..Default::default()
-    }
-}
-
 /// Publishes a persistent message and returns once the broker has confirmed it.
 pub async fn publish(client: &Client, queue: &str, message: &str) -> Result<(), Error> {
-    client.queue(queue, durable()).await?;
+    client.queue(queue, QueueOpts::default()).await?;
     let props = BasicProperties::builder()
         .content_type("text/plain")
         .persistent()
@@ -39,7 +30,7 @@ pub async fn consume(
     queue: &str,
     mut handler: impl FnMut(String),
 ) -> Result<(), Error> {
-    let queue = client.queue(queue, durable()).await?;
+    let queue = client.queue(queue, QueueOpts::default()).await?;
     let mut consumer = queue
         .subscribe::<Vec<u8>>(SubscribeOpts {
             prefetch: 10,

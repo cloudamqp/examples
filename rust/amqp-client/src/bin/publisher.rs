@@ -1,7 +1,7 @@
 use rust_amqp_client_example::{connect, publish};
 
 #[tokio::main]
-async fn main() -> Result<(), amqp_client_rs::Error> {
+async fn main() -> Result<(), amqp_client::Error> {
     let client = connect().await?;
     publish(&client, "hello", "Hello CloudAMQP!").await
 }
