@@ -3,9 +3,10 @@
 version = 4
 
 [[package]]
-name = "amqp-client-rs"
+name = "amqp-client"
 version = "0.1.0"
-source = "git+https://github.com/cloudamqp/amqp-client.rs#7cc6f0a33457991aabab4aa14e501532bd42f286"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b3df48db52f3c683068ee02485c24c37c9e5a3bb42fdb878a4d3a101b655444a"
 dependencies = [
  "bitflags",
  "bytes",
@@ -377,7 +378,7 @@ dependencies = [
 name = "rust-amqp-client-example"
 version = "0.1.0"
 dependencies = [
- "amqp-client-rs",
+ "amqp-client",
  "tokio",
 ]
 
