@@ -1,7 +1,7 @@
 use rust_amqp_client_example::{connect, consume};
 
 #[tokio::main]
-async fn main() -> Result<(), amqp_client_rs::Error> {
+async fn main() -> Result<(), amqp_client::Error> {
     let client = connect().await?;
     println!(" [*] Waiting for messages. To exit press CTRL+C");
     tokio::select! {
