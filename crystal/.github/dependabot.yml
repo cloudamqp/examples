@@ -1,0 +1,7 @@
+version: 2
+updates:
+  # Dependabot doesn't support shards, so shard.yml is updated by hand
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
