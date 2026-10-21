@@ -5,7 +5,8 @@ namespace AmqpExample;
 
 public static class Publisher
 {
-    // With confirmation tracking, BasicPublishAsync returns once the broker has confirmed the message
+    // With confirmation tracking, BasicPublishAsync returns once the broker has confirmed the message.
+    // This opens a channel per call; when publishing many messages, create the channel once and reuse it.
     public static async Task PublishAsync(IConnection connection, string queue, string message)
     {
         var options = new CreateChannelOptions(publisherConfirmationsEnabled: true, publisherConfirmationTrackingEnabled: true);
