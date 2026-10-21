@@ -28,4 +28,18 @@ class ConnectionTest < Minitest::Test
     assert_equal "my/vhost:us@er", options[:username]
     assert_equal "p/ss", options[:password]
   end
+
+  def test_plus_in_credentials_is_kept
+    options = Connection.options("amqp://us+er:p+ss@localhost")
+
+    assert_equal "us+er", options[:username]
+    assert_equal "p+ss", options[:password]
+  end
+
+  def test_url_without_credentials_uses_guest
+    options = Connection.options("amqp://localhost")
+
+    assert_equal "guest", options[:username]
+    assert_equal "guest", options[:password]
+  end
 end
