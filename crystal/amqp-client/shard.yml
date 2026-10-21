@@ -16,4 +16,4 @@ targets:
   worker:
     main: src/worker.cr
 
-crystal: ">= 1.0.0"
+crystal: ">= 1.12.0"
