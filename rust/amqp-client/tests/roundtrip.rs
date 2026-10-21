@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use amqp_client_rs::QueueDeclareOpts;
+use amqp_client::QueueOpts;
 use rust_amqp_client_example::{connect, consume, publish};
 
 #[tokio::test]
@@ -26,10 +26,6 @@ async fn worker_receives_published_message() {
     let received = tokio::time::timeout(Duration::from_secs(5), rx.recv()).await;
     assert_eq!(received.unwrap().as_deref(), Some("Hello CloudAMQP!"));
 
-    let opts = QueueDeclareOpts {
-        durable: true,
-        ..Default::default()
-    };
-    let q = publisher.queue(&queue, opts).await.unwrap();
+    let q = publisher.queue(&queue, QueueOpts::default()).await.unwrap();
     q.delete(Default::default()).await.unwrap();
 }
