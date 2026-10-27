@@ -1,0 +1,22 @@
+name: php/php-mqtt-client
+
+on:
+  push:
+    branches: [main]
+    paths: ["php/php-mqtt-client/**", ".github/workflows/php-php-mqtt-client.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["php/php-mqtt-client/**", ".github/workflows/php-php-mqtt-client.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: php/php-mqtt-client
+      # Keep in sync with mise.toml
+      php-version: "8.5"
+      test: |
+        composer install --no-interaction
+        composer test
