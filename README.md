@@ -9,6 +9,7 @@ self-contained project with its own README.
 |---|---|---|---|
 | Clojure | [clojure/langohr](clojure/langohr) | AMQP | Publish/consume with [Langohr](https://github.com/michaelklishin/langohr) |
 | Crystal | [crystal/amqp-client](crystal/amqp-client) | AMQP | Publish/consume with [amqp-client.cr](https://github.com/cloudamqp/amqp-client.cr) |
+| .NET | [dotnet/mqttnet](dotnet/mqttnet) | MQTT | QoS 1 publish/subscribe with [MQTTnet](https://github.com/dotnet/MQTTnet) 5 |
 | .NET | [dotnet/rabbitmq-client](dotnet/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ .NET client](https://github.com/rabbitmq/rabbitmq-dotnet-client) 7 |
 | Go | [go/amqp-client](go/amqp-client) | AMQP | Publish/consume with [amqp-client.go](https://github.com/cloudamqp/amqp-client.go) |
 | Go | [go/paho-mqtt](go/paho-mqtt) | MQTT | QoS 1 publish/subscribe with [paho.mqtt.golang](https://github.com/eclipse-paho/paho.mqtt.golang) |
