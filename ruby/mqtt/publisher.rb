@@ -1,15 +1,18 @@
-require_relative "connection"
+require "mqtt"
 
-module Publisher
-  # QoS 1 waits for the broker's PUBACK
-  def self.publish(client, topic, message)
-    client.publish(topic, message, false, 1)
-    puts " [x] Sent #{message.inspect}"
-  end
-end
+port = Integer(ENV.fetch("MQTT_PORT", "1883"))
+client = MQTT::Client.new(
+  host: ENV.fetch("MQTT_HOST", "localhost"),
+  port: port,
+  ssl: port == 8883,
+  username: ENV.fetch("MQTT_USERNAME", "guest"),
+  password: ENV.fetch("MQTT_PASSWORD", "guest")
+)
+# ruby-mqtt only checks the certificate's hostname, not who signed it
+client.ssl_context.set_params(verify_mode: OpenSSL::SSL::VERIFY_PEER)
+client.connect
 
-if __FILE__ == $PROGRAM_NAME
-  client = Connection.client
-  Publisher.publish(client, "hello", "Hello world!")
-  client.disconnect
-end
+# QoS 1 waits for the broker's PUBACK
+client.publish("hello", "Hello world!", false, 1)
+puts " [x] Sent 'Hello world!'"
+client.disconnect

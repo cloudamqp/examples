@@ -1,24 +1,22 @@
 require "minitest/autorun"
-require "securerandom"
-require_relative "../connection"
-require_relative "../publisher"
-require_relative "../worker"
+require "pty"
+require "timeout"
 
+# Runs the worker and the publisher as a reader would. The worker runs in a
+# pseudo-terminal, so it prints each line straight away
 class RoundtripTest < Minitest::Test
-  # Subscribe and publish on one connection, so the broker has handled the
-  # subscribe before the publish arrives
   def test_worker_receives_published_message
-    topic = "roundtrip/#{SecureRandom.uuid}"
-    received = Queue.new
-    client = Connection.client
-
-    Worker.subscribe(client, topic)
-    Publisher.publish(client, topic, "Hello world!")
-    thread = Thread.new { Worker.consume(client) { |message| received << message } }
-
-    assert_equal "Hello world!", received.pop(timeout: 5)
-  ensure
-    thread&.kill
-    client&.disconnect
+    Dir.chdir(File.expand_path("..", __dir__)) do
+      PTY.spawn("ruby", "worker.rb") do |output, _input, pid|
+        Timeout.timeout(10) do
+          output.gets until $_&.include?("Waiting for messages")
+          system("ruby", "publisher.rb", exception: true)
+          output.gets until $_&.include?("Received")
+        end
+        assert_includes $_, "Hello world!"
+      ensure
+        Process.kill("TERM", pid)
+      end
+    end
   end
 end
