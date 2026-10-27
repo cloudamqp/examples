@@ -7,7 +7,7 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: pip
-    directories: [/python/celery, /python/pika]
+    directories: [/python/celery, /python/paho-mqtt, /python/pika]
     schedule:
       interval: weekly
   - package-ecosystem: nuget
