@@ -1,23 +1,20 @@
-require_relative "connection"
+require "mqtt"
 
-module Worker
-  def self.subscribe(client, topic)
-    client.subscribe(topic => 1)
-  end
+port = Integer(ENV.fetch("MQTT_PORT", "1883"))
+client = MQTT::Client.new(
+  host: ENV.fetch("MQTT_HOST", "localhost"),
+  port: port,
+  ssl: port == 8883,
+  username: ENV.fetch("MQTT_USERNAME", "guest"),
+  password: ENV.fetch("MQTT_PASSWORD", "guest")
+)
+# ruby-mqtt only checks the certificate's hostname, not who signed it
+client.ssl_context.set_params(verify_mode: OpenSSL::SSL::VERIFY_PEER)
+client.connect
 
-  # Each message is acked when the block returns
-  def self.consume(client, &handler)
-    client.get { |_topic, payload| handler.call(payload) }
-  end
-end
-
-if __FILE__ == $PROGRAM_NAME
-  client = Connection.client
-  Worker.subscribe(client, "hello")
-  puts " [*] Waiting for messages. To exit press CTRL+C"
-  begin
-    Worker.consume(client) { |message| puts " [x] Received #{message.inspect}" }
-  rescue Interrupt
-    client.disconnect
-  end
+client.subscribe("hello" => 1)
+puts " [*] Waiting for messages. To exit press CTRL+C"
+# Each message is acked when the block returns
+client.get do |_topic, message|
+  puts " [x] Received '#{message}'"
 end

@@ -24,10 +24,15 @@ Rules for adding or changing examples in this repo.
   tool versions, and tests that run against a local LavinMQ.
 - Connects using the `BROKER_URL` environment variable. Never commit
   credentials or real broker hostnames.
-  Examples for other protocols (MQTT, STOMP) derive their connection settings
-  from the same AMQP URL, see `ruby/mqtt/connection.rb`.
+  MQTT examples use `MQTT_HOST`, `MQTT_PORT`, `MQTT_USERNAME` and
+  `MQTT_PASSWORD` instead, defaulting to `localhost`, `1883`, `guest` and
+  `guest`, and use TLS when the port is 8883. MQTT has no vhost, so on
+  CloudAMQP the username is `vhost:user`, as the console shows it.
 - Is minimal: publish with confirms and consume with manual acks and a prefetch,
   unless the example is about something else.
+- MQTT examples are a short snippet to read top to bottom: a publisher and a
+  worker, each one self-contained file, and a test that runs them both, see
+  `ruby/mqtt`.
 
 ## When adding an example
 
