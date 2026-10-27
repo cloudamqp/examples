@@ -15,7 +15,7 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: gomod
-    directories: [/go/amqp-client]
+    directories: [/go/amqp-client, /go/paho-mqtt]
     schedule:
       interval: weekly
   - package-ecosystem: maven
