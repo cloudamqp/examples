@@ -38,3 +38,7 @@ updates:
     directories: [/rust/amqp-client]
     schedule:
       interval: weekly
+  - package-ecosystem: swift
+    directories: [/swift/mqttnio]
+    schedule:
+      interval: weekly
