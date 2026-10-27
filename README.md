@@ -11,6 +11,7 @@ self-contained project with its own README.
 | Crystal | [crystal/amqp-client](crystal/amqp-client) | AMQP | Publish/consume with [amqp-client.cr](https://github.com/cloudamqp/amqp-client.cr) |
 | .NET | [dotnet/rabbitmq-client](dotnet/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ .NET client](https://github.com/rabbitmq/rabbitmq-dotnet-client) 7 |
 | Go | [go/amqp-client](go/amqp-client) | AMQP | Publish/consume with [amqp-client.go](https://github.com/cloudamqp/amqp-client.go) |
+| Go | [go/paho-mqtt](go/paho-mqtt) | MQTT | QoS 1 publish/subscribe with [paho.mqtt.golang](https://github.com/eclipse-paho/paho.mqtt.golang) |
 | Java | [java/rabbitmq-client](java/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ Java client](https://github.com/rabbitmq/rabbitmq-java-client) |
 | JavaScript | [javascript/amqp-client](javascript/amqp-client) | AMQP | Publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
 | JavaScript | [javascript/mqtt](javascript/mqtt) | MQTT | QoS 1 publish/subscribe with [MQTT.js](https://github.com/mqttjs/MQTT.js) |
