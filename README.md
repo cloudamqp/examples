@@ -17,6 +17,7 @@ self-contained project with its own README.
 | Java | [java/rabbitmq-client](java/rabbitmq-client) | AMQP | Publish/consume with the [RabbitMQ Java client](https://github.com/rabbitmq/rabbitmq-java-client) |
 | JavaScript | [javascript/amqp-client](javascript/amqp-client) | AMQP | Publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
 | JavaScript | [javascript/mqtt](javascript/mqtt) | MQTT | QoS 1 publish/subscribe with [MQTT.js](https://github.com/mqttjs/MQTT.js) |
+| Lua | [lua/nodemcu](lua/nodemcu) | MQTT | QoS 1 publish/subscribe on [NodeMCU](https://nodemcu.readthedocs.io), not tested in CI |
 | PHP | [php/php-amqplib](php/php-amqplib) | AMQP | Publish/consume with [php-amqplib](https://github.com/php-amqplib/php-amqplib) |
 | PHP | [php/php-mqtt-client](php/php-mqtt-client) | MQTT | QoS 1 publish/subscribe with [php-mqtt/client](https://github.com/php-mqtt/client) |
 | Python | [python/celery](python/celery) | AMQP | [Celery](https://docs.celeryq.dev) app using CloudAMQP as the broker |

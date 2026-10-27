@@ -8,7 +8,7 @@ Rules for adding or changing examples in this repo.
   when a language has only one example.
 - `<language>` is the lowercase language or runtime name: `python`, `ruby`,
   `typescript`, `javascript`, `dotnet`, `java`, `go`, `rust`, `crystal`, `php`, `clojure`,
-  `swift`.
+  `swift`, `lua`.
 - `<library>` is the client library or framework name, as published:
   `pika`, `celery`, `amqp-client`, `rabbitmq-client`, `php-amqplib`, `langohr`.
   Never use numbers or vague names like `example2` or `async`.
@@ -23,6 +23,8 @@ Rules for adding or changing examples in this repo.
   Duplication is fine.
 - Has its own `README.md`, dependency manifest and lockfile, `mise.toml` pinning
   tool versions, and tests that run against a local LavinMQ.
+  The exception is `lua/nodemcu`, which needs NodeMCU firmware to run, has
+  no tests or workflow, and sets the MQTT settings at the top of each file.
 - Connects using the `BROKER_URL` environment variable. Never commit
   credentials or real broker hostnames.
   MQTT examples use `MQTT_HOST`, `MQTT_PORT`, `MQTT_USERNAME` and
