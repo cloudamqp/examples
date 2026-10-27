@@ -23,7 +23,7 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: npm
-    directories: [/javascript/amqp-client, /typescript/amqp-client]
+    directories: [/javascript/amqp-client, /javascript/mqtt, /typescript/amqp-client]
     schedule:
       interval: weekly
   - package-ecosystem: composer

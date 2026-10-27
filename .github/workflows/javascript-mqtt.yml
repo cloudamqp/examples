@@ -1,0 +1,20 @@
+name: javascript/mqtt
+
+on:
+  push:
+    branches: [main]
+    paths: ["javascript/mqtt/**", ".github/workflows/javascript-mqtt.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["javascript/mqtt/**", ".github/workflows/javascript-mqtt.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: javascript/mqtt
+      test: |
+        npm ci
+        npm test
