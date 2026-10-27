@@ -11,7 +11,7 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: nuget
-    directories: [/dotnet/rabbitmq-client]
+    directories: [/dotnet/mqttnet, /dotnet/rabbitmq-client]
     schedule:
       interval: weekly
   - package-ecosystem: gomod
