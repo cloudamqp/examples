@@ -19,7 +19,7 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: maven
-    directories: [/java/rabbitmq-client]
+    directories: [/java/paho-mqtt, /java/rabbitmq-client]
     schedule:
       interval: weekly
   - package-ecosystem: npm
