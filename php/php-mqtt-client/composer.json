@@ -1,0 +1,13 @@
+{
+  "name": "cloudamqp/php-mqtt-client-example",
+  "require": {
+    "php": ">=8.4",
+    "php-mqtt/client": "^2.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^13.4"
+  },
+  "scripts": {
+    "test": "phpunit tests"
+  }
+}
