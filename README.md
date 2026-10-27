@@ -15,6 +15,7 @@ self-contained project with its own README.
 | JavaScript | [javascript/amqp-client](javascript/amqp-client) | AMQP | Publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
 | PHP | [php/php-amqplib](php/php-amqplib) | AMQP | Publish/consume with [php-amqplib](https://github.com/php-amqplib/php-amqplib) |
 | Python | [python/celery](python/celery) | AMQP | [Celery](https://docs.celeryq.dev) app using CloudAMQP as the broker |
+| Python | [python/paho-mqtt](python/paho-mqtt) | MQTT | QoS 1 publish/subscribe with [paho-mqtt](https://github.com/eclipse-paho/paho.mqtt.python) |
 | Python | [python/pika](python/pika) | AMQP | Publish/consume with [Pika](https://github.com/pika/pika) |
 | Ruby | [ruby/amqp-client](ruby/amqp-client) | AMQP | Publish/consume with [amqp-client.rb](https://github.com/cloudamqp/amqp-client.rb) |
 | Ruby | [ruby/mqtt](ruby/mqtt) | MQTT | QoS 1 publish/subscribe with [ruby-mqtt](https://github.com/njh/ruby-mqtt) |
