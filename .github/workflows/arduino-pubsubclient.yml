@@ -1,0 +1,21 @@
+name: arduino/pubsubclient
+
+on:
+  push:
+    branches: [main]
+    paths: ["arduino/pubsubclient/**", ".github/workflows/arduino-pubsubclient.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["arduino/pubsubclient/**", ".github/workflows/arduino-pubsubclient.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: arduino/pubsubclient
+      # Running the sketches needs an ESP32, so CI only compiles them
+      test: |
+        arduino-cli compile --profile esp32 publisher
+        arduino-cli compile --profile esp32 worker
