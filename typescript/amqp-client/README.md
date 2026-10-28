@@ -7,7 +7,7 @@ A minimal TypeScript example of publishing and consuming messages with
 
 - [`publisher.ts`](publisher.ts) publishes a persistent message and waits for the broker's confirm.
 - [`worker.ts`](worker.ts) consumes with a prefetch of 10, acking each message when the callback returns.
-- [`amqp.ts`](amqp.ts) connects using the `CLOUDAMQP_URL` environment variable, and reconnects automatically.
+- [`amqp.ts`](amqp.ts) connects using the `BROKER_URL` environment variable, and reconnects automatically.
 
 ## Usage
 
@@ -16,12 +16,12 @@ or use Node.js 24.2+, which runs `.ts` files directly without a build step.
 
 ```sh
 npm install
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 node worker.ts      # in one terminal
 node publisher.ts   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

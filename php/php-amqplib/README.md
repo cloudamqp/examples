@@ -7,7 +7,7 @@ A minimal example of publishing and consuming messages with
 
 - [`Publisher.php`](src/Publisher.php) publishes a persistent message and waits for the broker's confirm.
 - [`Worker.php`](src/Worker.php) consumes with manual acknowledgements and a prefetch of 10.
-- [`Amqp.php`](src/Amqp.php) connects using the `CLOUDAMQP_URL` environment variable, with TLS for `amqps://` URLs.
+- [`Amqp.php`](src/Amqp.php) connects using the `BROKER_URL` environment variable, with TLS for `amqps://` URLs.
 
 ## Usage
 
@@ -17,12 +17,12 @@ Requires PHP 8.4+ with the `sockets` and `mbstring` extensions, and
 
 ```sh
 composer install
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 php worker.php      # in one terminal
 php publisher.php   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

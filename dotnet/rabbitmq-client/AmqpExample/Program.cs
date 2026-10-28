@@ -5,7 +5,7 @@ await using var connection = await Amqp.ConnectAsync();
 switch (args.FirstOrDefault())
 {
     case "publish":
-        await Publisher.PublishAsync(connection, "hello", "Hello CloudAMQP!");
+        await Publisher.PublishAsync(connection, "hello", "Hello world!");
         break;
     case "worker":
         await using (var channel = await connection.CreateChannelAsync())

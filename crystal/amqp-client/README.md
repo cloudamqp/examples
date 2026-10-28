@@ -13,7 +13,7 @@ All AMQP code is in [`src/example.cr`](src/example.cr):
 - `consume` consumes with a prefetch of 10, acking each message after the
   block returns. `subscribe` acks automatically unless `no_ack: false` is
   passed.
-- `connect` connects using the `CLOUDAMQP_URL` environment variable, and
+- `connect` connects using the `BROKER_URL` environment variable, and
   verifies the server certificate for `amqps://` URLs.
 
 amqp-client.cr doesn't reconnect: if the connection is lost, the programs exit.
@@ -25,12 +25,12 @@ or use Crystal 1.12 or later.
 
 ```sh
 shards build
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 bin/worker      # in one terminal
 bin/publisher   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

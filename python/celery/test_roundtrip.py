@@ -16,7 +16,7 @@ def test_worker_runs_published_task():
     try:
         # An embedded worker using the settings from celeryconfig.py
         with start_worker(app, pool="solo", perform_ping_check=False):
-            hello.delay("CloudAMQP")
-            assert results.get(timeout=10) == "Hello CloudAMQP!"
+            hello.delay("world")
+            assert results.get(timeout=10) == "Hello world!"
     finally:
         task_success.disconnect(on_success)

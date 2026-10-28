@@ -7,7 +7,7 @@ against [CloudAMQP](https://www.cloudamqp.com) or any AMQP 0-9-1 broker such as
 
 - [`Publisher.java`](src/main/java/Publisher.java) publishes a persistent message with publisher confirms.
 - [`Worker.java`](src/main/java/Worker.java) consumes with manual acknowledgements and a prefetch of 10.
-- [`Amqp.java`](src/main/java/Amqp.java) connects using the `CLOUDAMQP_URL` environment variable.
+- [`Amqp.java`](src/main/java/Amqp.java) connects using the `BROKER_URL` environment variable.
 
 ## Usage
 
@@ -15,12 +15,12 @@ Tool versions are in `mise.toml`; install them with [mise](https://mise.jdx.dev)
 or use Java 21+ and Maven 3.
 
 ```sh
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 mvn compile exec:java -Dexec.mainClass=Worker      # in one terminal
 mvn compile exec:java -Dexec.mainClass=Publisher   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

@@ -7,7 +7,7 @@ A minimal example of publishing and consuming messages with
 
 - [`publisher.rb`](publisher.rb) publishes a message; it's persistent and waits for a publisher confirm by default.
 - [`worker.rb`](worker.rb) consumes with a prefetch of 10, acking each message when the block returns.
-- [`amqp.rb`](amqp.rb) connects using the `CLOUDAMQP_URL` environment variable, and reconnects automatically.
+- [`amqp.rb`](amqp.rb) connects using the `BROKER_URL` environment variable, and reconnects automatically.
 
 ## Usage
 
@@ -16,12 +16,12 @@ or use any maintained Ruby version.
 
 ```sh
 bundle install
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 bundle exec ruby worker.rb      # in one terminal
 bundle exec ruby publisher.rb   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

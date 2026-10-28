@@ -6,7 +6,7 @@ or any AMQP 0-9-1 broker such as [LavinMQ](https://lavinmq.com) or RabbitMQ.
 
 - [`publisher.py`](publisher.py) publishes a persistent message with publisher confirms.
 - [`worker.py`](worker.py) consumes with manual acknowledgements and a prefetch of 10.
-- [`amqp.py`](amqp.py) connects using the `CLOUDAMQP_URL` environment variable.
+- [`amqp.py`](amqp.py) connects using the `BROKER_URL` environment variable.
 
 ## Usage
 
@@ -15,12 +15,12 @@ is created in `.venv` automatically. Otherwise use Python 3 and a virtualenv.
 
 ```sh
 pip install -r requirements.txt
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 python worker.py      # in one terminal
 python publisher.py   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

@@ -10,6 +10,6 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   client = Amqp.client
-  Publisher.publish(client, "hello", "Hello CloudAMQP!")
+  Publisher.publish(client, "hello", "Hello world!")
   client.stop
 end

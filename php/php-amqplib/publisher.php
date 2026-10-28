@@ -6,5 +6,5 @@ use Example\Amqp;
 use Example\Publisher;
 
 $connection = Amqp::connect();
-Publisher::publish($connection->channel(), 'hello', 'Hello CloudAMQP!');
+Publisher::publish($connection->channel(), 'hello', 'Hello world!');
 $connection->close();

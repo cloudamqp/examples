@@ -7,7 +7,7 @@ A minimal JavaScript example of publishing and consuming messages with
 
 - [`publisher.js`](publisher.js) publishes a persistent message and waits for the broker's confirm.
 - [`worker.js`](worker.js) consumes with a prefetch of 10, acking each message when the callback returns.
-- [`amqp.js`](amqp.js) connects using the `CLOUDAMQP_URL` environment variable, and reconnects automatically.
+- [`amqp.js`](amqp.js) connects using the `BROKER_URL` environment variable, and reconnects automatically.
 
 ## Usage
 
@@ -16,12 +16,12 @@ or use Node.js 24.2+.
 
 ```sh
 npm install
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 node worker.js      # in one terminal
 node publisher.js   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

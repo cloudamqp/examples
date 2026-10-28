@@ -17,4 +17,4 @@ def publish(channel, queue, message):
 
 if __name__ == "__main__":
     with amqp.connect() as connection:
-        publish(connection.channel(), "hello", "Hello CloudAMQP!")
+        publish(connection.channel(), "hello", "Hello world!")

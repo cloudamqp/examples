@@ -7,7 +7,7 @@ A minimal example of publishing and subscribing over MQTT 3.1.1 with
 
 - [`publisher.rb`](publisher.rb) publishes with QoS 1 and waits for the broker's PUBACK.
 - [`worker.rb`](worker.rb) subscribes with QoS 1, acking each message when the block returns.
-- [`connection.rb`](connection.rb) connects using the `CLOUDAMQP_URL` environment variable.
+- [`connection.rb`](connection.rb) connects using the `BROKER_URL` environment variable.
   It's the same AMQP URL as the other examples: `amqps://` becomes MQTT over TLS on
   port 8883, `amqp://` plain MQTT on port 1883, and the vhost goes in the username as
   `vhost:user`.
@@ -19,12 +19,12 @@ or use any maintained Ruby version.
 
 ```sh
 bundle install
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 bundle exec ruby worker.rb      # in one terminal
 bundle exec ruby publisher.rb   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`, which
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`, which
 becomes `mqtt://localhost:1883` as user `guest`.
 
 ## Tests

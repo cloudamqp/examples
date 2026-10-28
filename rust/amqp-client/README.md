@@ -9,7 +9,7 @@ All code is in [`src/lib.rs`](src/lib.rs):
 
 - `publish` publishes a persistent message and returns once the broker has confirmed it.
 - `consume` consumes with a prefetch of 10, acking each message after the handler returns.
-- `connect` connects using the `CLOUDAMQP_URL` environment variable, and
+- `connect` connects using the `BROKER_URL` environment variable, and
   recovers the connection, queues and consumers if it's lost.
 
 ## Usage
@@ -18,12 +18,12 @@ Tool versions are in `mise.toml`; install them with [mise](https://mise.jdx.dev)
 or use stable Rust.
 
 ```sh
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 cargo run --bin worker      # in one terminal
 cargo run --bin publisher   # in another
 ```
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

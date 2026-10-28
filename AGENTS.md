@@ -22,7 +22,7 @@ Rules for adding or changing examples in this repo.
   Duplication is fine.
 - Has its own `README.md`, dependency manifest and lockfile, `mise.toml` pinning
   tool versions, and tests that run against a local LavinMQ.
-- Connects using the `CLOUDAMQP_URL` environment variable. Never commit
+- Connects using the `BROKER_URL` environment variable. Never commit
   credentials or real broker hostnames.
   Examples for other protocols (MQTT, STOMP) derive their connection settings
   from the same AMQP URL, see `ruby/mqtt/connection.rb`.

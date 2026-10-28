@@ -13,10 +13,10 @@ class RoundtripTest < Minitest::Test
     client = Connection.client
 
     Worker.subscribe(client, topic)
-    Publisher.publish(client, topic, "Hello CloudAMQP!")
+    Publisher.publish(client, topic, "Hello world!")
     thread = Thread.new { Worker.consume(client) { |message| received << message } }
 
-    assert_equal "Hello CloudAMQP!", received.pop(timeout: 5)
+    assert_equal "Hello world!", received.pop(timeout: 5)
   ensure
     thread&.kill
     client&.disconnect

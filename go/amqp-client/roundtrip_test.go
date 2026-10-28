@@ -33,14 +33,14 @@ func TestWorkerReceivesPublishedMessage(t *testing.T) {
 		}
 	}()
 
-	if err := runPublisher(ctx, c, queue, "Hello CloudAMQP!"); err != nil {
+	if err := runPublisher(ctx, c, queue, "Hello world!"); err != nil {
 		t.Fatal(err)
 	}
 
 	select {
 	case got := <-received:
-		if got != "Hello CloudAMQP!" {
-			t.Errorf("got %q, want %q", got, "Hello CloudAMQP!")
+		if got != "Hello world!" {
+			t.Errorf("got %q, want %q", got, "Hello world!")
 		}
 	case <-ctx.Done():
 		t.Fatal("no message received")

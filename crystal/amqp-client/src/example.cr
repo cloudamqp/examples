@@ -1,10 +1,10 @@
 require "amqp-client"
 
 module Example
-  # Connects to CLOUDAMQP_URL. TLS connections (amqps://) verify the server certificate.
+  # Connects to BROKER_URL. TLS connections (amqps://) verify the server certificate.
   # The client doesn't reconnect: restart the process or reconnect yourself if the connection is lost.
   def self.connect : AMQP::Client::Connection
-    AMQP::Client.new(ENV.fetch("CLOUDAMQP_URL", "amqp://guest:guest@localhost")).connect
+    AMQP::Client.new(ENV.fetch("BROKER_URL", "amqp://guest:guest@localhost")).connect
   end
 
   # Publishes a persistent message and blocks until the broker has confirmed it

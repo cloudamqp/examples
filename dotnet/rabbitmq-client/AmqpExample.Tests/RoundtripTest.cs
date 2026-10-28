@@ -17,9 +17,9 @@ public class RoundtripTest
             return Task.CompletedTask;
         });
 
-        await Publisher.PublishAsync(connection, queue, "Hello CloudAMQP!");
+        await Publisher.PublishAsync(connection, queue, "Hello world!");
 
-        Assert.Equal("Hello CloudAMQP!", await received.Task.WaitAsync(TimeSpan.FromSeconds(5), cancellationToken));
+        Assert.Equal("Hello world!", await received.Task.WaitAsync(TimeSpan.FromSeconds(5), cancellationToken));
         await consumerChannel.QueueDeleteAsync(queue, ifUnused: false, ifEmpty: false, cancellationToken: cancellationToken);
     }
 }

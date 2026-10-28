@@ -8,10 +8,10 @@ use PhpAmqpLib\Connection\AMQPConnectionFactory;
 
 final class Amqp
 {
-    // Connects to CLOUDAMQP_URL, e.g. amqps://user:password@host/vhost
+    // Connects to BROKER_URL, e.g. amqps://user:password@host/vhost
     public static function connect(): AbstractConnection
     {
-        return AMQPConnectionFactory::create(self::config(getenv('CLOUDAMQP_URL') ?: 'amqp://guest:guest@localhost'));
+        return AMQPConnectionFactory::create(self::config(getenv('BROKER_URL') ?: 'amqp://guest:guest@localhost'));
     }
 
     // rawurldecode, not urldecode, so a literal "+" in a password is kept

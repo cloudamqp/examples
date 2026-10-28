@@ -10,7 +10,7 @@
   (:gen-class))
 
 (defn connection-settings
-  "Settings for CLOUDAMQP_URL. For amqps:// the JVM's default SSLContext
+  "Settings for BROKER_URL. For amqps:// the JVM's default SSLContext
   verifies the server certificate and hostname; without it Langohr's
   client would trust any certificate."
   [uri]
@@ -19,7 +19,7 @@
                                              :verify-hostname true)))
 
 (defn connect []
-  (rmq/connect (connection-settings (or (System/getenv "CLOUDAMQP_URL")
+  (rmq/connect (connection-settings (or (System/getenv "BROKER_URL")
                                         "amqp://guest:guest@localhost"))))
 
 (defn publish
@@ -45,7 +45,7 @@
 (defn -main [& [mode]]
   (let [conn (connect)]
     (case mode
-      "publish" (do (publish (lch/open conn) "hello" "Hello CloudAMQP!")
+      "publish" (do (publish (lch/open conn) "hello" "Hello world!")
                     (rmq/close conn))
       "worker"  (do (consume (lch/open conn) "hello" #(println (format " [x] Received '%s'" %)))
                     (println " [*] Waiting for messages. To exit press CTRL+C"))

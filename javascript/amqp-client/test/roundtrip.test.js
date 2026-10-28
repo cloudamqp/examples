@@ -10,8 +10,8 @@ test("worker receives published message", async () => {
   const session = await connect()
   try {
     const received = new Promise((resolve) => consume(session, queue, resolve))
-    await publish(session, queue, "Hello CloudAMQP!")
-    assert.equal(await received, "Hello CloudAMQP!")
+    await publish(session, queue, "Hello world!")
+    assert.equal(await received, "Hello world!")
   } finally {
     await (await session.queue(queue)).delete()
     await session.stop()

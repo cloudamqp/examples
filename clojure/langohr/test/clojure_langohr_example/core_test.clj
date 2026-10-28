@@ -21,8 +21,8 @@
         conn     (example/connect)]
     (try
       (example/consume (lch/open conn) queue #(deliver received %))
-      (example/publish (lch/open conn) queue "Hello CloudAMQP!")
-      (is (= "Hello CloudAMQP!" (deref received 5000 :timeout)))
+      (example/publish (lch/open conn) queue "Hello world!")
+      (is (= "Hello world!" (deref received 5000 :timeout)))
       (finally
         (lq/delete (lch/open conn) queue)
         (rmq/close conn)))))

@@ -26,7 +26,7 @@ func main() {
 	defer c.Close()
 
 	if os.Args[1] == "publish" {
-		err = runPublisher(ctx, c, "hello", "Hello CloudAMQP!")
+		err = runPublisher(ctx, c, "hello", "Hello world!")
 	} else {
 		err = runWorker(ctx, c, "hello", func(message string) error {
 			log.Printf(" [x] Received '%s'", message)
@@ -38,9 +38,9 @@ func main() {
 	}
 }
 
-// connect connects to CLOUDAMQP_URL, and reconnects if the connection is lost.
+// connect connects to BROKER_URL, and reconnects if the connection is lost.
 func connect(ctx context.Context) (*amqp.Client, error) {
-	url := os.Getenv("CLOUDAMQP_URL")
+	url := os.Getenv("BROKER_URL")
 	if url == "" {
 		url = "amqp://guest:guest@localhost"
 	}

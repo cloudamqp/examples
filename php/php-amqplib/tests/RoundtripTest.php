@@ -18,10 +18,10 @@ final class RoundtripTest extends TestCase
             $received = $message;
         });
 
-        Publisher::publish($connection->channel(), $queue, 'Hello CloudAMQP!');
+        Publisher::publish($connection->channel(), $queue, 'Hello world!');
         $consumerChannel->wait(null, false, 5);
 
-        $this->assertSame('Hello CloudAMQP!', $received);
+        $this->assertSame('Hello world!', $received);
         $consumerChannel->queue_delete($queue);
         $connection->close();
     }

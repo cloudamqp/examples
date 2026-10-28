@@ -19,12 +19,12 @@ async fn worker_receives_published_message() {
     });
 
     let publisher = connect().await.unwrap();
-    publish(&publisher, &queue, "Hello CloudAMQP!")
+    publish(&publisher, &queue, "Hello world!")
         .await
         .unwrap();
 
     let received = tokio::time::timeout(Duration::from_secs(5), rx.recv()).await;
-    assert_eq!(received.unwrap().as_deref(), Some("Hello CloudAMQP!"));
+    assert_eq!(received.unwrap().as_deref(), Some("Hello world!"));
 
     let q = publisher.queue(&queue, QueueOpts::default()).await.unwrap();
     q.delete(Default::default()).await.unwrap();

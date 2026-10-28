@@ -19,9 +19,9 @@ class RoundtripTest {
       Worker.consume(consumerChannel, queue, received::add);
 
       Channel publisherChannel = connection.createChannel();
-      Publisher.publish(publisherChannel, queue, "Hello CloudAMQP!");
+      Publisher.publish(publisherChannel, queue, "Hello world!");
 
-      assertEquals("Hello CloudAMQP!", received.poll(5, TimeUnit.SECONDS));
+      assertEquals("Hello world!", received.poll(5, TimeUnit.SECONDS));
       consumerChannel.queueDelete(queue);
     }
   }

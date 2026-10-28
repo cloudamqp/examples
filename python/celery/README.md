@@ -16,7 +16,7 @@ is created in `.venv` automatically. Otherwise use Python 3.9+ and a virtualenv.
 
 ```sh
 pip install -r requirements.txt
-export CLOUDAMQP_URL="amqps://user:password@host/vhost"
+export BROKER_URL="amqps://user:password@host/vhost"
 celery -A tasks worker --without-heartbeat --without-gossip --without-mingle   # in one terminal
 python publisher.py                                                           # in another
 ```
@@ -24,7 +24,7 @@ python publisher.py                                                           # 
 The `--without-*` flags stop the worker from sending heartbeat, gossip and
 mingle messages, which otherwise add up to hundreds of messages per second.
 
-Without `CLOUDAMQP_URL` it connects to `amqp://guest:guest@localhost`.
+Without `BROKER_URL` it connects to `amqp://guest:guest@localhost`.
 
 ## Tests
 

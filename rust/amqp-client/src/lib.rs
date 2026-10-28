@@ -1,9 +1,9 @@
 use amqp_client::{BasicProperties, Client, Error, QueueOpts, RecoveryConfig, SubscribeOpts};
 
-/// Connects to CLOUDAMQP_URL, and recovers the connection, queues and consumers if it's lost.
+/// Connects to BROKER_URL, and recovers the connection, queues and consumers if it's lost.
 pub async fn connect() -> Result<Client, Error> {
     let url =
-        std::env::var("CLOUDAMQP_URL").unwrap_or_else(|_| "amqp://guest:guest@localhost".into());
+        std::env::var("BROKER_URL").unwrap_or_else(|_| "amqp://guest:guest@localhost".into());
     Client::builder(&url)?
         .recovery(RecoveryConfig::default())
         .build()

@@ -9,11 +9,11 @@ describe Example do
 
     begin
       Example.consume(conn.channel, queue) { |message| received.send(message) }
-      Example.publish(conn.channel, queue, "Hello CloudAMQP!")
+      Example.publish(conn.channel, queue, "Hello world!")
 
       select
       when message = received.receive
-        message.should eq "Hello CloudAMQP!"
+        message.should eq "Hello world!"
       when timeout(5.seconds)
         fail "no message received"
       end

@@ -7,7 +7,7 @@ import com.rabbitmq.client.MessageProperties;
 public class Publisher {
   public static void main(String[] args) throws Exception {
     try (Connection connection = Amqp.connect()) {
-      publish(connection.createChannel(), "hello", "Hello CloudAMQP!");
+      publish(connection.createChannel(), "hello", "Hello world!");
     }
   }
 

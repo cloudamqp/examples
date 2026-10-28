@@ -13,9 +13,9 @@ def test_worker_receives_published_message():
         consumer_channel = connection.channel()
         worker.consume(consumer_channel, queue, received.append)
 
-        publisher.publish(connection.channel(), queue, "Hello CloudAMQP!")
+        publisher.publish(connection.channel(), queue, "Hello world!")
 
         connection.process_data_events(time_limit=5)
         consumer_channel.queue_delete(queue)
 
-    assert received == ["Hello CloudAMQP!"]
+    assert received == ["Hello world!"]

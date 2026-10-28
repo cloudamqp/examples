@@ -9,6 +9,6 @@ export async function publish(session, queueName, message) {
 
 if (import.meta.main) {
   const session = await connect()
-  await publish(session, "hello", "Hello CloudAMQP!")
+  await publish(session, "hello", "Hello world!")
   await session.stop()
 }

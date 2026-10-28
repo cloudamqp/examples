@@ -11,9 +11,9 @@ class RoundtripTest < Minitest::Test
     client = Amqp.client
 
     Worker.consume(client, queue) { |message| received << message }
-    Publisher.publish(client, queue, "Hello CloudAMQP!")
+    Publisher.publish(client, queue, "Hello world!")
 
-    assert_equal "Hello CloudAMQP!", received.pop(timeout: 5)
+    assert_equal "Hello world!", received.pop(timeout: 5)
   ensure
     client&.queue(queue)&.delete
     client&.stop

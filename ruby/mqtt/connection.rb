@@ -3,7 +3,7 @@ require "uri"
 
 module Connection
   def self.client
-    MQTT::Client.connect(options(ENV.fetch("CLOUDAMQP_URL", "amqp://guest:guest@localhost")))
+    MQTT::Client.connect(options(ENV.fetch("BROKER_URL", "amqp://guest:guest@localhost")))
   end
 
   # Uses the same URL as the AMQP examples. MQTT has no vhost, so it goes in

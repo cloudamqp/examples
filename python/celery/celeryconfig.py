@@ -1,7 +1,7 @@
 import os
 
 # Recommended settings for CloudAMQP, see https://www.cloudamqp.com/docs/celery.html
-broker_url = os.environ.get("CLOUDAMQP_URL", "amqp://guest:guest@localhost//")
+broker_url = os.environ.get("BROKER_URL", "amqp://guest:guest@localhost//")
 broker_pool_limit = 1  # Decreases connection usage
 broker_heartbeat = None  # CloudAMQP uses TCP keep-alive instead
 broker_connection_timeout = 30  # Long timeout, e.g. for slow DNS lookups
