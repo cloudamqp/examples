@@ -1,0 +1,19 @@
+name: c/paho-mqtt
+
+on:
+  push:
+    branches: [main]
+    paths: ["c/paho-mqtt/**", ".github/workflows/c-paho-mqtt.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["c/paho-mqtt/**", ".github/workflows/c-paho-mqtt.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: c/paho-mqtt
+      apt-packages: libpaho-mqtt-dev
+      test: make test
