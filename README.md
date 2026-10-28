@@ -8,6 +8,7 @@ self-contained project with its own README.
 | Language | Example | Protocol | Description |
 |---|---|---|---|
 | Arduino | [arduino/pubsubclient](arduino/pubsubclient) | MQTT | Publish/subscribe on an ESP32 with [PubSubClient](https://github.com/knolleary/pubsubclient), compiled but not run in CI |
+| C | [c/paho-mqtt](c/paho-mqtt) | MQTT | QoS 1 publish/subscribe with [Eclipse Paho C](https://github.com/eclipse-paho/paho.mqtt.c) |
 | Clojure | [clojure/langohr](clojure/langohr) | AMQP | Publish/consume with [Langohr](https://github.com/michaelklishin/langohr) |
 | Crystal | [crystal/amqp-client](crystal/amqp-client) | AMQP | Publish/consume with [amqp-client.cr](https://github.com/cloudamqp/amqp-client.cr) |
 | .NET | [dotnet/mqttnet](dotnet/mqttnet) | MQTT | QoS 1 publish/subscribe with [MQTTnet](https://github.com/dotnet/MQTTnet) 5 |
