@@ -29,5 +29,6 @@ self-contained project with its own README.
 | Ruby | [ruby/mqtt](ruby/mqtt) | MQTT | QoS 1 publish/subscribe with [ruby-mqtt](https://github.com/njh/ruby-mqtt) |
 | Rust | [rust/amqp-client](rust/amqp-client) | AMQP | Publish/consume with [amqp-client.rs](https://github.com/cloudamqp/amqp-client.rs) |
 | Rust | [rust/rumqttc](rust/rumqttc) | MQTT | QoS 1 publish/subscribe with [rumqttc](https://github.com/bytebeamio/rumqtt) |
+| Shell | [shell/mosquitto](shell/mosquitto) | MQTT | QoS 1 publish/subscribe with [mosquitto_pub and mosquitto_sub](https://mosquitto.org) |
 | Swift | [swift/mqttnio](swift/mqttnio) | MQTT | QoS 1 publish/subscribe with [MQTT NIO](https://github.com/swift-server-community/mqtt-nio) |
 | TypeScript | [typescript/amqp-client](typescript/amqp-client) | AMQP | Publish/consume with [amqp-client.js](https://github.com/cloudamqp/amqp-client.js) |
