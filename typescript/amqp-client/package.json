@@ -10,7 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@cloudamqp/amqp-client": "^4.1.1"
+    "@cloudamqp/amqp-client": "^4.1.2"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
