@@ -8,7 +8,7 @@ Rules for adding or changing examples in this repo.
   when a language has only one example.
 - `<language>` is the lowercase language or runtime name: `python`, `ruby`,
   `typescript`, `javascript`, `dotnet`, `java`, `go`, `rust`, `crystal`, `php`, `clojure`,
-  `swift`, `lua`, `arduino`, `c`.
+  `swift`, `lua`, `arduino`, `c`, `shell`.
 - `<library>` is the client library or framework name, as published:
   `pika`, `celery`, `amqp-client`, `rabbitmq-client`, `php-amqplib`, `langohr`.
   Never use numbers or vague names like `example2` or `async`.

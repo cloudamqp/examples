@@ -1,0 +1,19 @@
+name: shell/mosquitto
+
+on:
+  push:
+    branches: [main]
+    paths: ["shell/mosquitto/**", ".github/workflows/shell-mosquitto.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["shell/mosquitto/**", ".github/workflows/shell-mosquitto.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: shell/mosquitto
+      apt-packages: mosquitto-clients
+      test: ./test.sh
