@@ -1,0 +1,20 @@
+name: rust/rumqttc
+
+on:
+  push:
+    branches: [main]
+    paths: ["rust/rumqttc/**", ".github/workflows/rust-rumqttc.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["rust/rumqttc/**", ".github/workflows/rust-rumqttc.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: rust/rumqttc
+      test: |
+        cargo clippy --all-targets -- -D warnings
+        cargo test

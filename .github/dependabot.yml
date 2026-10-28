@@ -35,7 +35,7 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: cargo
-    directories: [/rust/amqp-client]
+    directories: [/rust/amqp-client, /rust/rumqttc]
     schedule:
       interval: weekly
   - package-ecosystem: swift
