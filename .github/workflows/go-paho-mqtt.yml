@@ -1,0 +1,20 @@
+name: go/paho-mqtt
+
+on:
+  push:
+    branches: [main]
+    paths: ["go/paho-mqtt/**", ".github/workflows/go-paho-mqtt.yml", ".github/workflows/_example.yml"]
+  pull_request:
+    paths: ["go/paho-mqtt/**", ".github/workflows/go-paho-mqtt.yml", ".github/workflows/_example.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/_example.yml
+    with:
+      directory: go/paho-mqtt
+      test: |
+        go vet ./...
+        go test ./...

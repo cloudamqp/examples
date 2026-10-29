@@ -7,7 +7,8 @@ Rules for adding or changing examples in this repo.
 - Every example lives at `<language>/<library>/`, always two levels deep, even
   when a language has only one example.
 - `<language>` is the lowercase language or runtime name: `python`, `ruby`,
-  `typescript`, `javascript`, `dotnet`, `java`, `go`, `rust`, `crystal`, `php`, `clojure`.
+  `typescript`, `javascript`, `dotnet`, `java`, `go`, `rust`, `crystal`, `php`, `clojure`,
+  `swift`, `lua`, `arduino`, `c`, `shell`.
 - `<library>` is the client library or framework name, as published:
   `pika`, `celery`, `amqp-client`, `rabbitmq-client`, `php-amqplib`, `langohr`.
   Never use numbers or vague names like `example2` or `async`.
@@ -22,12 +23,20 @@ Rules for adding or changing examples in this repo.
   Duplication is fine.
 - Has its own `README.md`, dependency manifest and lockfile, `mise.toml` pinning
   tool versions, and tests that run against a local LavinMQ.
+  The exceptions are `lua/nodemcu` and `arduino/pubsubclient`, which need a
+  device to run and set the MQTT settings at the top of each file.
+  `lua/nodemcu` has no tests or workflow; CI compiles the Arduino sketches.
 - Connects using the `BROKER_URL` environment variable. Never commit
   credentials or real broker hostnames.
-  Examples for other protocols (MQTT, STOMP) derive their connection settings
-  from the same AMQP URL, see `ruby/mqtt/connection.rb`.
+  MQTT examples use `MQTT_HOST`, `MQTT_PORT`, `MQTT_USERNAME` and
+  `MQTT_PASSWORD` instead, defaulting to `localhost`, `1883`, `guest` and
+  `guest`, and use TLS when the port is 8883. MQTT has no vhost, so on
+  CloudAMQP the username is `vhost:user`, as the console shows it.
 - Is minimal: publish with confirms and consume with manual acks and a prefetch,
   unless the example is about something else.
+- MQTT examples are a short snippet to read top to bottom: a publisher and a
+  worker, each one self-contained file, and a test that runs them both, see
+  `ruby/mqtt`.
 
 ## When adding an example
 

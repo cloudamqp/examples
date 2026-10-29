@@ -7,27 +7,27 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: pip
-    directories: [/python/celery, /python/pika]
+    directories: [/python/celery, /python/paho-mqtt, /python/pika]
     schedule:
       interval: weekly
   - package-ecosystem: nuget
-    directories: [/dotnet/rabbitmq-client]
+    directories: [/dotnet/mqttnet, /dotnet/rabbitmq-client]
     schedule:
       interval: weekly
   - package-ecosystem: gomod
-    directories: [/go/amqp-client]
+    directories: [/go/amqp-client, /go/paho-mqtt]
     schedule:
       interval: weekly
   - package-ecosystem: maven
-    directories: [/java/rabbitmq-client]
+    directories: [/java/paho-mqtt, /java/rabbitmq-client]
     schedule:
       interval: weekly
   - package-ecosystem: npm
-    directories: [/javascript/amqp-client, /typescript/amqp-client]
+    directories: [/javascript/amqp-client, /javascript/mqtt, /typescript/amqp-client]
     schedule:
       interval: weekly
   - package-ecosystem: composer
-    directories: [/php/php-amqplib]
+    directories: [/php/php-amqplib, /php/php-mqtt-client]
     schedule:
       interval: weekly
   - package-ecosystem: bundler
@@ -35,6 +35,10 @@ updates:
     schedule:
       interval: weekly
   - package-ecosystem: cargo
-    directories: [/rust/amqp-client]
+    directories: [/rust/amqp-client, /rust/rumqttc]
+    schedule:
+      interval: weekly
+  - package-ecosystem: swift
+    directories: [/swift/mqttnio]
     schedule:
       interval: weekly
