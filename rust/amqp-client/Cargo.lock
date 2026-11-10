@@ -4,9 +4,9 @@ version = 4
 
 [[package]]
 name = "amqp-client"
-version = "0.1.0"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b3df48db52f3c683068ee02485c24c37c9e5a3bb42fdb878a4d3a101b655444a"
+checksum = "debf18619f0e6eb10f96f6d86b9aa5c6dbdc83c18200d0b3fd46f23c846312d9"
 dependencies = [
  "bitflags",
  "bytes",
