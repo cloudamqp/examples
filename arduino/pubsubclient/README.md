@@ -1,5 +1,8 @@
 # Use CloudAMQP over MQTT from Arduino
 
+> PubSubClient is [no longer maintained](https://github.com/knolleary/pubsubclient#readme).
+> For new projects, use [`arduino/mqtt`](../mqtt) instead.
+
 A minimal example of publishing and subscribing over MQTT 3.1.1 with
 [PubSubClient](https://github.com/knolleary/pubsubclient) on an ESP32, against
 [CloudAMQP](https://www.cloudamqp.com) or any MQTT-enabled broker such as

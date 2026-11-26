@@ -23,8 +23,8 @@ Rules for adding or changing examples in this repo.
   Duplication is fine.
 - Has its own `README.md`, dependency manifest and lockfile, `mise.toml` pinning
   tool versions, and tests that run against a local LavinMQ.
-  The exceptions are `lua/nodemcu` and `arduino/pubsubclient`, which need a
-  device to run and set the MQTT settings at the top of each file.
+  The exceptions are `lua/nodemcu`, `arduino/mqtt` and `arduino/pubsubclient`,
+  which need a device to run and set the MQTT settings at the top of each file.
   `lua/nodemcu` has no tests or workflow; CI compiles the Arduino sketches.
 - Connects using the `BROKER_URL` environment variable. Never commit
   credentials or real broker hostnames.
